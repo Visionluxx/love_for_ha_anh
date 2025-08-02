@@ -1,0 +1,210 @@
+body{
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.begin-heart{
+  background: hsl(211, 100%, 50%);
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 10px 10px 90px #007BFF;
+}
+
+
+/*.begin-heart-shadow {
+  width: 100px;
+  height: 100px;
+  transform: (rotate(-45deg));
+  position: absolute;
+  box-shadow: 10px 10px 90px #007BFF;
+}*/
+
+
+.begin-heart:before{
+  content: '';
+  z-index: 2;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background: hsl(211, 100%, 50%);
+  top: -50%;
+  border-radius: 50%;
+}
+
+
+.begin-heart:after{
+  content: '';
+  z-index: 2;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background: hsl(211, 100%, 50%); 
+  /*background: #f20044; là hsl(343, 100%, 50%), red end*/
+  right: -50%;
+  border-radius: 50%;
+}
+
+
+.animate-class{
+  animation: bump-main-heart 0.6s ease-out 1 forwards;
+}
+.animate-class:before{
+  animation: bump-extra-heart 0.6s ease-out 1 forwards;
+}
+.animate-class:after{
+  animation: bump-extra-heart 0.6s ease-out 1 forwards;
+}
+
+
+
+@keyframes bump-main-heart {
+  0% 
+  {
+    transform: rotate(-45deg) scale(1.07);
+  }
+  20%{
+    transform: rotate (-45deg) scale (0.8);
+  }
+  50%{
+    transform: rotate(-45deg) scale(1.0);
+  }
+  80%{
+    transform: rotate(-45deg) scale(0.9);
+    background: #f20044
+    /*box-shadow: 10px 10px 90px #f20044;*/
+  }
+  90%{
+    transform: rotate(-45deg) scale(1.2);
+    background: #f20044
+    /*box-shadow: 10px 10px 90px #f20044;*/
+  }
+  100%{
+    transform: rotate(-45deg) scale(1.2);
+    background: #f20044
+    /*box-shadow: 10px 10px 90px #f20044;*/
+  }
+}
+
+
+@keyframes bump-extra-heart {
+  0%{
+  }
+  50%{
+  }
+  80%{
+    background: #f20044
+  }
+  90%{
+    background: #f20044
+  }
+  100%{
+    background: #f20044
+  }
+}
+
+
+
+.start{
+  z-index: 10;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  opacity: 0;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  svg {
+    left: 28%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1199px) {
+  svg {
+    left: 35%;
+  }
+}
+
+/* Desktop lớn */
+@media (min-width: 1200px) {
+  svg {
+    left: 40%;
+  }
+}
+
+
+
+svg {
+  width: 300px;
+  height: auto;
+  display:block;
+  margin: auto;
+  max-width: 80vw;   
+  max-height: 80vh;
+  z-index: 10;
+  top: 2.5vh;
+  position: absolute;
+  transform: scale (2);
+}
+
+svg path {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 1000;
+  stroke-dasharray: 1000;   /* ước lượng lớn hơn chiều dài path */
+  stroke-dashoffset: 1000;  /* ẩn toàn bộ nét */
+  animation: draw 20s linear forwards;
+}
+
+/* Animate lần lượt từng path */
+svg path:nth-child(2) { animation-delay: 2.5s; } /* a */
+svg path:nth-child(3) { animation-delay: 3s; } /* dấu huyền */
+svg path:nth-child(4) { animation-delay: 4s; } /* A */
+svg path:nth-child(5) { animation-delay: 4.75s;} /*dấu gạch của chữ A */
+svg path:nth-child(6) { animation-delay: 5.5s; } /* n */
+svg path:nth-child(7) { animation-delay: 5.25s;}  /*nối A và n */
+svg path:nth-child(8) { animation-delay: 6.25s; } /* h cuối */
+svg path:nth-child(9) { animation-delay: 10.0s; }
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+  
+  
+.contain-main {
+  display: none;
+}
+
+canvas{
+  display: inline-block;
+  top: -10vh;
+  z-index: 0;
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
